@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenido rata</h1>
+    
 </body>
 </html>
