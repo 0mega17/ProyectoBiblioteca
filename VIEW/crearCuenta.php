@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-    <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
+    <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
 
-    <title>Sign In | AdminKit Demo</title>
+    <title>Sign Up | AdminKit Demo</title>
 
     <link href="../ASSETS/CSS/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -27,43 +27,47 @@
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
 
-                        <div class="text-center mt-4">
-                            <h1 class="h2">Bienvenido</h1>
-                            <p class="lead">
-                                Inicia sesión en tu cuenta para continuar
-                            </p>
-                        </div>
+
 
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-3">
-                                    <form action="../CONTROLLER/controladorLogin.php" method="post">
+                                
+                                    <form  action="../CONTROLLER/controladorCrearUsuario.php" method="post">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nombre completo</label>
+                                            <input class="form-control form-control-lg" type="text" name="nombreUsuario" placeholder="Introduce tu nombre" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Apellidos</label>
+                                            <input class="form-control form-control-lg" type="text" name="apellidoUsuario" placeholder="Introduce tus apellidos" />
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
-                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                            <input class="form-control form-control-lg" type="email" name="emailUsuario" placeholder="Introduce su correo" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Contraseña</label>
-                                            <input class="form-control form-control-lg" type="password" name="contrasena" placeholder="Ingresa tu contraseña" />
+                                            <input class="form-control form-control-lg" type="password" name="contrasenaUsuario" placeholder="Introduce la contraseña" />
                                         </div>
                                         <div class="d-grid gap-2 mt-3">
-                                            <button type="submit" href="./index.php" class="btn btn-lg btn-primary">Iniciar sesión</button>
+                                            <button type="submit" href="./index.php" class="btn btn-lg btn-primary">Entrar</button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            Don't have an account? <a href="./crearCuenta.php">Sign up</a>
+                            ¿Ya tienes cuenta? <a href="./login.php">
+                                acceso</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../ASSETS/JS/app.js"></script>
+
+    <script src="js/app.js"></script>
 
 </body>
 
