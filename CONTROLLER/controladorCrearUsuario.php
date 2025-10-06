@@ -22,13 +22,22 @@
          values ('$nombreNuevo','$apellidoNuevo','$emailNuevo','$contrasenaNueva','cliente')";
         $resultado = $Mysql->efectuarConsulta($consultaSql);
         if ($resultado) {
-            $Mysql->desconectar();
-            // aqui debe de decir que se creo el usuario hacer un json que lo lea un js para sacar la alerta
-            
+            header('Content-Type: application/json; charset=utf-8');
+            // aqui se le manda el json con su valor 
+           echo json_encode(
+                [
+                    "susses" => true,
+
+                ]
+            );
         } else {
             // lo mismo pero al reves para motrar si algo fallo :3
-            echo "algo no paso"; 
+           echo json_encode(
+                [
+                    "susses" => false,
+                ]
+            );
         }
     }
-    
+$Mysql -> desconectar();
     ?>

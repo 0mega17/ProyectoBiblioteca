@@ -37,17 +37,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-3">
-                                    <form action="../CONTROLLER/controladorLogin.php" method="post">
+                                    <form id="formularioIniciarSesion">
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
-                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Ingresa tu email" />
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Contraseña</label>
                                             <input class="form-control form-control-lg" type="password" name="contrasena" placeholder="Ingresa tu contraseña" />
                                         </div>
                                         <div class="d-grid gap-2 mt-3">
-                                            <button type="submit" href="./index.php" class="btn btn-lg btn-primary">Iniciar sesión</button>
+                                            <button type="submit"  class="btn btn-lg btn-primary">Iniciar sesión</button>
                                         </div>
 
                                     </form>
@@ -64,6 +64,7 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../ASSETS/JS/app.js"></script>
+    <script src="../ASSETS/JS/alertaIniciarSesion.js"></script>
 
 </body>
 

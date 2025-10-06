@@ -24,13 +24,23 @@ if (
         $rolAlmacenado = $fila['rol'];
         $_SESSION['rol'] = $rolAlmacenado;
         if ($emailIngresado === $emailAlmacenado && $contrasenaIngresado === $contrasenaAlmacenada) {
-           
-            header("Location: ../VIEW/index.php");
-            exit();
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(
+                [
+                    "validacion" => true,
+                ]
+            );
         } else {
-
-           
+            echo json_encode(
+                [
+                    "validacion" => false,
+                ]
+            );
         }
+    } else {
+        echo json_encode([
+            "validacion" =>false,
+        ]);
     }
 }
 $Mysql->desconectar();

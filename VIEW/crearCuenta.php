@@ -32,8 +32,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-3">
-                                
-                                    <form  action="../CONTROLLER/controladorCrearUsuario.php" method="post">
+
+                                    <form id="formularioCrearCuenta">
                                         <div class="mb-3">
                                             <label class="form-label">Nombre completo</label>
                                             <input class="form-control form-control-lg" type="text" name="nombreUsuario" placeholder="Introduce tu nombre" />
@@ -66,8 +66,9 @@
             </div>
         </div>
     </main>
-
-    <script src="js/app.js"></script>
+    <script src="../ASSETS/JS/alertaCrearCuenta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../ASSETS/JS/app.js"></script>
 
 </body>
 
