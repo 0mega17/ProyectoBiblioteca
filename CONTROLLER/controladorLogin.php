@@ -1,5 +1,6 @@
 <?php
 require_once '../MODEL/MySQL.php';
+header('Content-Type: application/json; charset=utf-8');
 $Mysql  = new MySQL();
 $Mysql->conectar();
 session_start();
@@ -8,9 +9,9 @@ if (
     && isset($_POST['contrasena'])   && !empty($_POST['contrasena'])
 ) {
     $emailIngresado = $_POST['email'];
-    $contrasenaIngresado = $_POST['contrasena'];
+    $contrasenaIngresado = trim($_POST['contrasena']);
     $emailIngresado = filter_var($emailIngresado, FILTER_SANITIZE_EMAIL);
-    $contrasenaIngresado = htmlspecialchars(trim($contrasenaIngresado));
+
     $consultaSql = "SELECT emailUsuario AS correo, 
                        contraseñaUsuario AS contrasena, 
                        tipouUsuario AS rol 
@@ -23,8 +24,9 @@ if (
         $contrasenaAlmacenada = $fila['contrasena'];
         $rolAlmacenado = $fila['rol'];
         $_SESSION['rol'] = $rolAlmacenado;
-        if ($emailIngresado === $emailAlmacenado && $contrasenaIngresado === $contrasenaAlmacenada) {
-            header('Content-Type: application/json; charset=utf-8');
+        // se hace la verificacion de la contraseña ingresada con lo que trae la consulta y si es valido entonces todo esta nice :D  
+        if (password_verify($contrasenaIngresado, $contrasenaAlmacenada)) {
+
             echo json_encode(
                 [
                     "validacion" => true,
@@ -39,7 +41,7 @@ if (
         }
     } else {
         echo json_encode([
-            "validacion" =>false,
+            "validacion" => false,
         ]);
     }
 }
