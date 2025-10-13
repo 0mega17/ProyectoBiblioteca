@@ -20,15 +20,12 @@ document
             confirmButtonColor: "#3085d6",
           }).then((result) => {
             if (result.isConfirmed) {
-              
-               document
-                 .querySelectorAll("input")
-                 .forEach((input) => (input.value = ""));
-
-               // 🔹 Limpia los select (vuelve al primer valor por defecto)
-               document
-                 .querySelectorAll("select")
-                 .forEach((select) => (select.selectedIndex = 0));
+              document
+                .querySelectorAll("input")
+                .forEach((input) => (input.value = ""));
+              document
+                .querySelectorAll("select")
+                .forEach((select) => (select.selectedIndex = 0));
             }
           });
         } else {
