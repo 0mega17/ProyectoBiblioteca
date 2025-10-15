@@ -33,7 +33,7 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="index.html">
-                    <span class="align-middle">AdminKit</span>
+                    <span class="align-middle">Administrador</span>
                 </a>
 
                 <ul class="sidebar-nav">
@@ -53,43 +53,61 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="./crearCuentaAdmin.php">
-                            <i class="align-middle" data-feather="book"></i>
-                            <span class="align-middle">Blank</span>
-                        </a>
-                    </li>
-
                     <li class="sidebar-header"> Tools & Components </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="ui-buttons.html">
                             <i class="align-middle" data-feather="square"></i>
-                            <span class="align-middle">Buttons</span>
+                            <span class="align-middle">Usuarios</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="ui-forms.html">
                             <i class="align-middle" data-feather="check-square"></i>
-                            <span class="align-middle">Forms</span>
+                            <span class="align-middle">Libros   </span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="ui-cards.html">
                             <i class="align-middle" data-feather="grid"></i>
-                            <span class="align-middle">Cards</span>
+                            <span class="align-middle">Reservas</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="icons-feather.html">
                             <i class="align-middle" data-feather="coffee"></i>
-                            <span class="align-middle">Icons</span>
+                            <span class="align-middle">Prestamos</span>
                         </a>
                     </li>
                 </ul>
+
+                    <li class="sidebar-header"> Reportes y Configuración </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-buttons.html">
+                            <i class="align-middle" data-feather="square"></i>
+                            <span class="align-middle">Informes</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-forms.html">
+                            <i class="align-middle" data-feather="check-square"></i>
+                            <span class="align-middle">Notificaciones     </span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-cards.html">
+                            <i class="align-middle" data-feather="grid"></i>
+                            <span class="align-middle">Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+
 
                 <div class="sidebar-cta"> </div>
             </div>
