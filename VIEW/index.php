@@ -47,37 +47,37 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="">
+                        <a class="sidebar-link" href="perfil.php">
                             <i class="align-middle" data-feather="user"></i>
-                            <span class="align-middle">Profile</span>
+                            <span class="align-middle">Perfil</span>
                         </a>
                     </li>
 
                     <li class="sidebar-header"> Tools & Components </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-buttons.html">
+                        <a class="sidebar-link" href="usuarios.php">
                             <i class="align-middle" data-feather="square"></i>
                             <span class="align-middle">Usuarios</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-forms.html">
+                        <a class="sidebar-link" href="libros.php">
                             <i class="align-middle" data-feather="check-square"></i>
                             <span class="align-middle">Libros   </span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-cards.html">
+                        <a class="sidebar-link" href="reservas.php">
                             <i class="align-middle" data-feather="grid"></i>
                             <span class="align-middle">Reservas</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="icons-feather.html">
+                        <a class="sidebar-link" href="prestamos.php">
                             <i class="align-middle" data-feather="coffee"></i>
                             <span class="align-middle">Prestamos</span>
                         </a>
@@ -87,14 +87,14 @@
                     <li class="sidebar-header"> Reportes y Configuración </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-buttons.html">
+                        <a class="sidebar-link" href="./informes.php">
                             <i class="align-middle" data-feather="square"></i>
                             <span class="align-middle">Informes</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-forms.html">
+                        <a class="sidebar-link" href="./notificaciones.phpSS">
                             <i class="align-middle" data-feather="check-square"></i>
                             <span class="align-middle">Notificaciones     </span>
                         </a>
