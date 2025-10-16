@@ -304,18 +304,21 @@
                                 <!-- aqui sera el panel para ver los usuarios dodne tambien sera las conecciones para eliminar y editar 
                                  el Usuario en cuestion  -->
                                 <div class="card-body">
-                                    <table id="tablaInformacionUsuarios" class="display">
+                                    <table id="tablaInformacionUsuarios" class="display table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>Nombre (s)</th>
                                                 <th>Apellidos</th>
                                                 <th>Email</th>
-                                                <th>Contraseña</th>
                                                 <th>Tipo usuario</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
+                                        <tbody id="cuerpoTabla">
+
+                                        </tbody>
                                         <tbody>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -355,10 +358,11 @@
             </footer>
         </div>
     </div>
+    <script src="../ASSETS/JS/mostrarDatosUsuarios.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../ASSETS/JS/alertaIngresarLibro.js"></script>
+
     <script src="../ASSETS/JS/app.js"></script>
 
 </body>
