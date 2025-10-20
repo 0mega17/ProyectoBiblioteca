@@ -8,18 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       datos.forEach((usuario) => {
         let fila = document.createElement("tr");
+        // lo que se debe de hacer aqui es tener el ID del usuario en cuestion para poder eliminar
+       
         fila.innerHTML = `
             <td>${usuario.nombre}</td>
             <td>${usuario.apellidos}</td>
             <td>${usuario.correo}</td>
             <td>${usuario.tipouUsuario}</td>
-            <td><button class="btn btn-warning btn-sm me-1 btnEditar">
+            
+            <td><button class="btn btn-warning btn-sm me-1 btnEditar" data-id="${usuario.idUsuario}">
     <i class="bi bi-pencil-square"></i> Editar
   </button>
-  <button  class="btn btn-danger btn-sm btnEliminar">
+  <button  class="btn btn-danger btn-sm btnEliminar" data-id="${usuario.idUsuario}">
     <i class="bi bi-trash"></i> Eliminar
   </button></td>
           `;
+
         cuerpoTabla.appendChild(fila);
       });
     })
