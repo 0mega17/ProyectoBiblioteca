@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       datos.forEach((usuario) => {
         let fila = document.createElement("tr");
-        // lo que se debe de hacer aqui es tener el ID del usuario en cuestion para poder eliminar
        
         fila.innerHTML = `
             <td>${usuario.nombre}</td>

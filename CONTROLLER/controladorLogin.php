@@ -30,6 +30,7 @@ if (
             echo json_encode(
                 [
                     "validacion" => true,
+                    "rol" => $rolAlmacenado,
                 ]
             );
         } else {
