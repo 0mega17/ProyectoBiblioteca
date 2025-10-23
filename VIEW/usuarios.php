@@ -103,79 +103,62 @@
           <h1 class="h3 mb-3"><strong>Gestión de Usuarios</strong></h1>
 
           <div class="row">
-            <!-- FORMULARIO DE REGISTRO -->
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title mb-0">Registrar Nuevo Usuario</h5>
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="mb-3">
-                      <label class="form-label">Nombre</label>
-                      <input type="text" class="form-control" placeholder="Ej: Ana Gómez" />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Correo</label>
-                      <input type="email" class="form-control" placeholder="Ej: ana@example.com" />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Rol</label>
-                      <select class="form-select">
-                        <option value="">Seleccionar...</option>
-                        <option value="admin">Administrador</option>
-                        <option value="cliente">Cliente</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" placeholder="********" />
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Registrar Usuario</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <!-- TABLA DE USUARIOS -->
-            <div class="col-lg-8">
+            <div class="col-lg-10">
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h5 class="card-title mb-0">Lista de Usuarios</h5>
-                  <button class="btn btn-sm btn-outline-primary">Actualizar</button>
+                  <div>
+                    <a href="crearCuentaAdmin.php" class="btn btn-sm btn-success me-2">
+                      <i data-feather="user-plus"></i> Crear Administrador
+                    </a>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i data-feather="refresh-cw"></i> Actualizar
+                    </button>
+                  </div>
                 </div>
+
                 <div class="card-body table-responsive">
                   <table class="table table-striped align-middle">
                     <thead>
                       <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
+                        <th>Apellido</th>
+                        <th>Gmail</th>
+                        <th>Tipo Usuario</th>
                         <th>Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Ana Gómez</td>
-                        <td>ana@example.com</td>
-                        <td>Administrador</td>
-                        <td>
-                          <button class="btn btn-sm btn-warning">Editar</button>
-                          <button class="btn btn-sm btn-danger">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Carlos Pérez</td>
-                        <td>carlos@example.com</td>
-                        <td>Cliente</td>
-                        <td>
-                          <button class="btn btn-sm btn-warning">Editar</button>
-                          <button class="btn btn-sm btn-danger">Eliminar</button>
-                        </td>
-                      </tr>
+                      <?php
+                      require_once("../MODEL/MySQL.php");
+                      $mysql = new MySQL();
+                      $mysql->conectar();
+                      $conexion = $mysql->getConnection();
+
+                      $query = "SELECT * FROM usuario";
+                      $resultado = mysqli_query($conexion, $query);
+
+                      if ($resultado && mysqli_num_rows($resultado) > 0) {
+                          while ($fila = mysqli_fetch_assoc($resultado)) {
+                              echo "<tr>";
+                              echo "<td>{$fila['idUsuario']}</td>";
+                              echo "<td>{$fila['nombreUsuario']}</td>";
+                              echo "<td>{$fila['apellidoUsuario']}</td>";
+                              echo "<td>{$fila['emailUsuario']}</td>";
+                              echo "<td>{$fila['tipouUsuario']}</td>";
+                              echo "<td>
+                                      <a href='editarUsuario.php?id={$fila['idUsuario']}' class='btn btn-warning btn-sm'>Editar</a>
+                                      <a href='eliminarUsuario.php?id={$fila['idUsuario']}' class='btn btn-danger btn-sm' onclick='return confirm(\"¿Seguro que deseas eliminar este usuario?\")'>Eliminar</a>
+                                    </td>";
+                              echo "</tr>";
+                          }
+                      } else {
+                          echo "<tr><td colspan='6' class='text-center'>No hay usuarios registrados</td></tr>";
+                      }
+
+                      $mysql->desconectar();
+                      ?>
                     </tbody>
                   </table>
                 </div>
@@ -208,7 +191,6 @@
         </div>
       </footer>
     </div>
-    <!-- /Contenido principal -->
   </div>
 
   <script src="../ASSETS/JS/app.js"></script>

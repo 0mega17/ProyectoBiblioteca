@@ -1,9 +1,27 @@
+<?php
+require_once("../MODEL/MySQL.php");
+session_start();
+
+$mysql = new MySQL();
+$mysql->conectar();
+$conexion = $mysql->getConnection();
+
+// Consulta: solo mostrar préstamos aceptados (estadoReserva = 'Aceptada')
+$query = "SELECT r.idReserva, r.fechaReserva, r.estadoReserva, u.nombre AS usuario, l.titulo AS libro 
+          FROM reserva r
+          INNER JOIN usuario u ON r.idUsuario = u.idUsuario
+          INNER JOIN libro l ON r.idLibro = l.idLibro
+          WHERE r.estadoReserva = 'Aceptada'";
+
+$resultado = mysqli_query($conexion, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Gestión de Libros</title>
+    <title>Gestión de Préstamos</title>
     <link href="../ASSETS/CSS/app.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
@@ -43,14 +61,6 @@
                         </a>
                     </li>
 
-                    <!--Aquí marcamos prestamos como activo -->
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="prestamos.php">
-                            <i class="align-middle" data-feather="book"></i>
-                            <span class="align-middle">prestamos</span>
-                        </a>
-                    </li>
-
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="reservas.php">
                             <i class="align-middle" data-feather="bookmark"></i>
@@ -58,9 +68,9 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item active">
                         <a class="sidebar-link" href="prestamos.php">
-                            <i class="align-middle" data-feather="book-open"></i>
+                            <i class="align-middle" data-feather="book"></i>
                             <span class="align-middle">Préstamos</span>
                         </a>
                     </li>
@@ -95,19 +105,41 @@
         <div class="main">
             <main class="content">
                 <div class="container-fluid p-0">
-                    <h1 class="h3 mb-3">Perfil</h1>
+                    <h1 class="h3 mb-3">Préstamos</h1>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-0">Perfil</h5>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Aquí puedes poner tu tabla de libros o formulario -->
-                                    <p>Desde aquí puedes editar el perfil.</p>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Listado de préstamos aceptados</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Usuario</th>
+                                        <th>Libro</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                                            echo "<tr>";
+                                            echo "<td>{$fila['idReserva']}</td>";
+                                            echo "<td>{$fila['usuario']}</td>";
+                                            echo "<td>{$fila['libro']}</td>";
+                                            echo "<td>{$fila['fechaReserva']}</td>";
+                                            echo "<td>{$fila['estadoReserva']}</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5' class='text-center'>No hay préstamos registrados.</td></tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -118,3 +150,7 @@
     <script src="../ASSETS/JS/app.js"></script>
 </body>
 </html>
+
+<?php
+$mysql->desconectar();
+?>
