@@ -111,9 +111,11 @@
                     <a href="crearCuentaAdmin.php" class="btn btn-sm btn-success me-2">
                       <i data-feather="user-plus"></i> Crear Administrador
                     </a>
-                    <button class="btn btn-sm btn-outline-primary">
+                    <a href="editarUSuarios.php">
+                      <button class="btn btn-sm btn-outline-primary">
                       <i data-feather="refresh-cw"></i> Actualizar
                     </button>
+                    </a>
                   </div>
                 </div>
 
@@ -148,7 +150,7 @@
                               echo "<td>{$fila['emailUsuario']}</td>";
                               echo "<td>{$fila['tipouUsuario']}</td>";
                               echo "<td>
-                                      <a href='editarUsuario.php?id={$fila['idUsuario']}' class='btn btn-warning btn-sm'>Editar</a>
+                                      <a href='editarUsuarios.php?id={$fila['idUsuario']}' class='btn btn-warning btn-sm'>Editar</a>
                                       <a href='eliminarUsuario.php?id={$fila['idUsuario']}' class='btn btn-danger btn-sm' onclick='return confirm(\"¿Seguro que deseas eliminar este usuario?\")'>Eliminar</a>
                                     </td>";
                               echo "</tr>";
