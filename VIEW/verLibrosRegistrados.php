@@ -11,9 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
     <title>Blank Page | AdminKit Demo</title>
 
     <link href="../ASSETS/CSS/app.css" rel="stylesheet">
@@ -204,24 +204,26 @@
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Empty card</h5>
                                 </div>
-                                <!-- aqui sera el panel para ver los usuarios dodne tambien sera las conecciones para eliminar y editar 
-                                 el Usuario en cuestion  -->
                                 <div class="card-body">
-                                    <table id="tablaInformacionUsuarios" class="display table table-striped" style="width:100%">
+
+                                    <table id="tablaInformacionLibros" class="display table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Nombre (s)</th>
-                                                <th>Apellidos</th>
-                                                <th>Email</th>
-                                                <th>Tipo usuario</th>
-                                                <th>Acciones</th>
+                                                <th>Titulo</th>
+                                                <th>Autor</th>
+                                                <th>ISBN</th>
+                                                <th>Categoria</th>
+                                                <th>Disponibiliadad</th>
+                                                <th>Cantidad</th>
                                             </tr>
                                         </thead>
                                         <tbody id="cuerpoTabla">
-
                                         </tbody>
-                            
                                     </table>
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -259,12 +261,9 @@
             </footer>
         </div>
     </div>
-    <script src="../ASSETS/JS/mostrarBotonesRol.js"></script>
-    <script src="../ASSETS/JS/mostrarDatosUsuarios.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="../ASSETS/JS/mostrarBotonesRol.js"></script>
+    <script src="../ASSETS/JS/mostrarLibros.js"></script>
     <script src="../ASSETS/JS/app.js"></script>
 
 </body>

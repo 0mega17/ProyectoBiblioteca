@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Crear usuario", icono: "", link: "crearCuentaAdmin.php" },
     { nombre: "Usuarios", icono: "", link: "panelUsuarios.php" },
     { nombre: "Crear libros", icono: "", link: "crearLibro.php" },
-    { nombre: "Libros registrados", icono: "", link: "" },
+    {
+      nombre: "Libros registrados",
+      icono: "",
+      link: "verLibrosRegistrados.php",
+    },
     { nombre: "Reservas", icono: "", link: "" },
     { nombre: "Prestamos", icono: "", link: "" },
     { nombre: "Reportes", icono: "", link: "" },
