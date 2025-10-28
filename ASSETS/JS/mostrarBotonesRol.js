@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Prestamos", icono: "", link: "" },
     { nombre: "Reportes", icono: "", link: "" },
   ];
-  let paginaCliente = [{ nombre: "InicioCliente", icono: "", link: "" }];
+  let paginaCliente = [{ nombre: "Inicio", icono: "", link: "verLibrosUsuarios.php" }];
   fetch("../CONTROLLER/controladorTraerRol.php")
     .then(function (respuesta) {
       return respuesta.json();
@@ -39,18 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
           menu.append(li);
         });
       } else if (json.rol === "cliente") {
-        paginaCliente.forEach((pagina) => {
+        paginaCliente.forEach((paginaCli) => {
           let li = document.createElement("li");
           li.classList.add("sidebar-item");
           let a = document.createElement("a");
           a.classList.add("sidebar-link");
-          a.setAttribute("href", pagina.link);
+          a.setAttribute("href", paginaCli.link);
           let i = document.createElement("i");
           i.classList.add("align-middle");
-          i.setAttribute("data-feather", pagina.icono);
+          i.setAttribute("data-feather", paginaCli.icono);
           let span = document.createElement("span");
           span.classList.add("align-middle");
-          span.textContent = pagina.nombre;
+          span.textContent = paginaCli.nombre;
           a.append(i);
           a.append(span);
           li.append(a);

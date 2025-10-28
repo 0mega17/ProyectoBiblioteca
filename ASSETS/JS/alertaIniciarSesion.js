@@ -18,7 +18,11 @@ document.getElementById("formularioIniciarSesion").addEventListener("submit", fu
             confirmButtonText: "Aceptar",
             confirmButtonColor: "#3085d6",
           }).then(() => {
-            window.location.href = "index.php";
+            if (json.rol === "administrador") {
+              window.location.href = "index.php";
+            } if (json.rol === "cliente") {
+                 window.location.href = "verLibrosUsuarios.php";
+            }
           });
         } else {
           Swal.fire({
