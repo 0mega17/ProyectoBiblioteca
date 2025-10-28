@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function mostrarLibros(lista) {
   let contenedor = document.getElementById("contenedorLibros");
+  
   contenedor.innerHTML = "";
   let row = document.createElement("div");
   row.classList.add("row");
@@ -49,7 +50,7 @@ function mostrarLibros(lista) {
   contenedor.appendChild(row);
 }
 
-// Manejador del buscador
+
 document.getElementById("buscador").addEventListener("input", (e) => {
   const texto = e.target.value.toLowerCase();
 
@@ -63,9 +64,9 @@ document.getElementById("buscador").addEventListener("input", (e) => {
   mostrarLibros(filtrados);
 });
 
-// Delegación de eventos para los botones "Reservar"
+
 document.getElementById("contenedorLibros").addEventListener("click", (e) => {
-  const boton = e.target.closest(".btnreservar"); // Verificamos si se clickeó un botón válido
+  const boton = e.target.closest(".btnreservar");
   if (boton) {
     const id = parseInt(boton.dataset.id);
     console.log("Reserva para libro ID:", id);
@@ -79,7 +80,7 @@ document.getElementById("contenedorLibros").addEventListener("click", (e) => {
       .then((respuesta) => {
         if (respuesta) {
           Swal.fire({
-            title: "¡Reserva hecha correctamente! 🎉",
+            title: "¡Reserva hecha correctamente!",
             text: "Tu libro ha sido reservado exitosamente.",
             icon: "success",
             confirmButtonText: "Aceptar",

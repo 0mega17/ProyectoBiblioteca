@@ -18,7 +18,7 @@
 
     <link href="../ASSETS/CSS/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="../ASSETS/CSS/estilos.css">
 </head>
 
 <body>
@@ -211,13 +211,14 @@
                                  los datos dependiendo a lo que se este buscando en el momento   -->
 
                                 <div class="card-body">
-                                    <div id="contenedorLibros"></div>
+
                                     <!-- aqui se hara la parte del buscador de libros lo cuales tendran el titulo del libro el autor
                                      su ISBN  categoria del libro  la disponibilida para poder poner o habilitar la funcion de reservar depende la si ya todos los que estan
                                      estan reservados esto se hace con el fin de mostrar que si se tiene el libro sin importar si lo pueden reservar o no :3 y solo se muestran los libros
                                      que este disponibles que no esten "borrados del inventario"  -->
                                     <!--   <div id="mostrarLibros"></div>  -->
                                 </div>
+                                <div class="container mt-4" id="contenedorLibros"></div>
                             </div>
                         </div>
                     </div>
