@@ -206,18 +206,17 @@
                                 </div>
                                 <div class="card-body">
 
-                                    <table id="tablaInformacionLibros" class="table table-hover table-striped table-bordered text-center align-middle shadow-sm">
+                                    <table class="table table-hover table-striped table-bordered text-center align-middle shadow-sm">
                                         <thead>
                                             <tr>
-                                                <th>Titulo</th>
-                                                <th>Autor</th>
-                                                <th>ISBN</th>
-                                                <th>Categoria</th>
-                                                <th>Disponibiliadad</th>
-                                                <th>Cantidad</th>
+                                                <th>Libro</th>
+                                                <th>Fecha reserva</th>
+                                                <th>Estado</th>
+                                                <th>Opcion</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="cuerpoTabla">
+                                        <tbody id="datosReservas">
+
                                         </tbody>
                                     </table>
 
@@ -263,7 +262,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../ASSETS/JS/mostrarBotonesRol.js"></script>
-    <script src="../ASSETS/JS/mostrarLibros.js"></script>
+    <script src="../ASSETS/JS/mostrarReservas.js"></script>
     <script src="../ASSETS/JS/app.js"></script>
 
 </body>

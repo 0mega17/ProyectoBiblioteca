@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Prestamos", icono: "", link: "" },
     { nombre: "Reportes", icono: "", link: "" },
   ];
-  let paginaCliente = [{ nombre: "Inicio", icono: "", link: "verLibrosUsuarios.php" }];
+  let paginaCliente = [
+    { nombre: "Inicio", icono: "", link: "verLibrosUsuarios.php" },
+    { nombre: "Mis reservas", icono: "", link: "misReservas.php" },
+  ];
   fetch("../CONTROLLER/controladorTraerRol.php")
     .then(function (respuesta) {
       return respuesta.json();
