@@ -1,5 +1,98 @@
 <?php
 require_once '../MODEL/MySQL.php';
+if (file_exists(__DIR__ . '/../LIBRERIAS/phpSpreadsheet/vendor/autoload.php')) {
+    require_once __DIR__ . '/../LIBRERIAS/phpSpreadsheet/vendor/autoload.php';
+}
+
+// Validación básica de parámetros
+if (!isset($_GET['tipo']) || !isset($_GET['formato'])) {
+    die("Error: Faltan parámetros (tipo o formato).");
+}
+
+$tipo = $_GET['tipo'];
+$formato = $_GET['formato'];
+
+//  EXCEL 
+if ($formato === 'excel') {
+    // Conectar a BD
+    $mysql = new MySQL();
+    $mysql->conectar();
+    $conexion = $mysql->getConnection();
+
+    
+    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+
+    switch ($tipo) {
+        case 'libros':
+            $sheet->setTitle('Libros');
+            $sheet->fromArray(['ID', 'Título', 'Autor', 'ISBN', 'Categoría', 'Disponibilidad', 'Cantidad'], NULL, 'A1');
+            $consulta = "SELECT idLibro, tituloLibro, autorLibro, ISBN, categoriaLibro, disponibilidadLibro, cantidadLibro FROM libro";
+            break;
+
+        case 'reservas':
+            $sheet->setTitle('Reservas');
+            $sheet->fromArray(['ID', 'Usuario', 'Libro', 'Fecha Reserva', 'Estado'], NULL, 'A1');
+            $consulta = "SELECT idReserva, id_Usuario, id_Libro, fechaReserva, estadoReserva FROM reserva";
+            break;
+
+        case 'usuarios':
+            $sheet->setTitle('Usuarios');
+            $sheet->fromArray(['ID', 'Nombre', 'Correo', 'Tipo'], NULL, 'A1');
+            $consulta = "SELECT idUsuario, nombreUsuario, correoUsuario, tipoUsuario FROM usuario";
+            break;
+
+        case 'prestamos':
+            $sheet->setTitle('Préstamos');
+            $sheet->fromArray(['Usuario', 'Libro', 'Fecha Préstamo', 'Fecha Devolución'], NULL, 'A1');
+            $consulta = "
+                SELECT u.nombreUsuario AS usuario, 
+                       l.tituloLibro AS libro, 
+                       p.fechaPrestamo, 
+                       p.fechaDevolucion
+                FROM prestamo p
+                INNER JOIN reserva r ON p.id_Reserva = r.idReserva
+                INNER JOIN usuario u ON r.id_Usuario = u.idUsuario
+                INNER JOIN libro l ON r.id_Libro = l.idLibro";
+            break;
+
+        default:
+            $mysql->desconectar();
+            die("Error: Tipo de informe no válido.");
+    }
+
+    $resultado = mysqli_query($conexion, $consulta);
+    if (!$resultado) {
+        $mysql->desconectar();
+        die("Error en la consulta: " . mysqli_error($conexion));
+    }
+
+    $filaExcel = 2; 
+    while ($fila = mysqli_fetch_assoc($resultado)) {
+        // fromArray con valores preserva el orden de columnas tal como vienen en la consulta
+        $sheet->fromArray(array_values($fila), NULL, 'A' . $filaExcel);
+        $filaExcel++;
+    }
+
+    // Autoajustar columnas (recorremos desde A hasta la última columna usada)
+    $highestColumn = $sheet->getHighestColumn();
+    foreach (range('A', $highestColumn) as $col) {
+        $sheet->getColumnDimension($col)->setAutoSize(true);
+    }
+
+    // Enviar al navegador
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="informe_' . $tipo . '.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+    $writer->save('php://output');
+
+    $mysql->desconectar();
+    exit;
+}
+
+// PDF 
 require_once '../LIBRERIAS/FPDF/fpdf.php';
 
 $mysql = new MySQL();

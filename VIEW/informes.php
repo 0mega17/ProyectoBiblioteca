@@ -10,7 +10,6 @@
 
 <body>
     <div class="wrapper">
-        <!-- ======== SIDEBAR ======== -->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="index.php">
@@ -90,7 +89,7 @@
             </div>
         </nav>
 
-        <!-- ======== CONTENIDO PRINCIPAL ======== -->
+        <!-- CONTENIDO PRINCIPAL -->
         <div class="main">
             <main class="content">
                 <div class="container-fluid p-0">
@@ -104,7 +103,7 @@
                                 </div>
                                 <div class="card-body">
 
-                                    <!-- Formulario para generar informe -->
+                                    <!-- Formulario para generar informe  -->
                                     <form id="formInforme" action="../CONTROLLER/informesController.php" method="GET" target="_blank">
                                         <div class="row mb-3">
                                             <div class="col-md-4">

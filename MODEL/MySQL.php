@@ -8,7 +8,7 @@ class MySQL
 
     private $conexion;
 
-    // ✅ Método para conectar a la base de datos
+    // conectar a la base de datos
     public function conectar()
     {
         $this->conexion = mysqli_connect(
@@ -25,7 +25,7 @@ class MySQL
         mysqli_set_charset($this->conexion, "utf8");
     }
 
-    // ✅ Método para desconectar
+    // desconectar
     public function desconectar()
     {
         if ($this->conexion) {
@@ -33,13 +33,13 @@ class MySQL
         }
     }
 
-    // ✅ Método para obtener la conexión
+    //  obtener la conexión
     public function getConnection()
     {
         return $this->conexion;
     }
 
-    // ✅ Ejecutar consultas
+    // Ejecutar consultas
     public function efectuarConsulta($consulta)
     {
         mysqli_query($this->conexion, "SET NAMES 'utf8'");
