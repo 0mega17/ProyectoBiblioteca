@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       icono: "",
       link: "verLibrosRegistrados.php",
     },
-    { nombre: "Reservas", icono: "", link: "" },
+    { nombre: "Reservas", icono: "", link: "controlReservasAdmin.php" },
     { nombre: "Prestamos", icono: "", link: "" },
     { nombre: "Reportes", icono: "", link: "" },
   ];
