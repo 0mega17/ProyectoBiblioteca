@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "verLibrosRegistrados.php",
     },
     { nombre: "Reservas", icono: "", link: "controlReservasAdmin.php" },
-    { nombre: "Prestamos", icono: "", link: "" },
+    { nombre: "Prestamos", icono: "", link: "panelPrestamos.php" },
     { nombre: "Reportes", icono: "", link: "" },
   ];
   let paginaCliente = [
