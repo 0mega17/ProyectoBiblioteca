@@ -186,7 +186,7 @@
                                 <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a>
                             </div>
                         </li>
                     </ul>
@@ -220,7 +220,7 @@
                                         <tbody id="cuerpoTabla">
 
                                         </tbody>
-                            
+
                                     </table>
                                 </div>
                             </div>
@@ -264,6 +264,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../ASSETS/JS/cerrarSesion.js"></script>
 
     <script src="../ASSETS/JS/app.js"></script>
 

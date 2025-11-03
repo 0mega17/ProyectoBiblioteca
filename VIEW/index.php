@@ -33,7 +33,7 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <ul class="sidebar-nav" id="menu">
-                    <li class="sidebar-header">Bienvenido</li> 
+                    <li class="sidebar-header">Bienvenido</li>
                 </ul>
 
                 <div class="sidebar-cta"> </div>
@@ -233,7 +233,7 @@
                                         data-feather="help-circle"></i>
                                     Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a>
                             </div>
                         </li>
                     </ul>
@@ -570,9 +570,10 @@
             </footer>
         </div>
     </div>
-<script src="../ASSETS/JS/mostrarBotonesRol.js"></script>
+    <script src="../ASSETS/JS/mostrarBotonesRol.js"></script>
     <script src="../ASSETS/JS/app.js"></script>
-
+    <script src="../ASSETS/JS/cerrarSesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var ctx = document
