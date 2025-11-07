@@ -25,6 +25,7 @@ if (
         $rolAlmacenado = $fila['rol'];
         $_SESSION['rol'] = $rolAlmacenado;
         $_SESSION['id'] = $fila['idUsuario'];
+        $_SESSION['email'] = $fila['correo'];
         // se hace la verificacion de la contraseña ingresada con lo que trae la consulta y si es valido entonces todo esta nice :D  
         if (password_verify($contrasenaIngresado, $contrasenaAlmacenada)) {
 
