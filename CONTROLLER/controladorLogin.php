@@ -29,7 +29,7 @@ if (
         // se hace la verificacion de la contraseña ingresada con lo que trae la consulta y si es valido entonces todo esta nice :D  
         if (password_verify($contrasenaIngresado, $contrasenaAlmacenada)) {
 
-            echo json_encode(
+            echo json_encode( 
                 [
                     "validacion" => true,
                     "rol" => $fila['rol'],
